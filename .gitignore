@@ -1,0 +1,33 @@
+# Python
+__pycache__/
+*.py[cod]
+*.egg-info/
+.pytest_cache/
+.mypy_cache/
+.ruff_cache/
+.coverage
+htmlcov/
+dist/
+build/
+
+# Environments and secrets
+.venv/
+.env
+.env.*
+!.env.example
+
+# Runtime state
+.workflow-ai/
+*.sqlite
+*.sqlite-shm
+*.sqlite-wal
+
+# Obsidian local state
+vault/.obsidian/
+.trash/
+
+# Editors / OS
+.idea/
+.vscode/
+.DS_Store
+Thumbs.db

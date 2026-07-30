@@ -1,0 +1,93 @@
+[project]
+name = "workflow-ai"
+version = "0.1.0"
+description = "Obsidian-first executive knowledge operations and human-approved workflow automation"
+readme = "README.md"
+requires-python = ">=3.12,<3.14"
+license = { text = "MIT" }
+authors = [{ name = "ehzawad" }]
+keywords = ["ai", "workflow", "obsidian", "knowledge-management", "executive-operations"]
+classifiers = [
+  "Development Status :: 3 - Alpha",
+  "Framework :: FastAPI",
+  "License :: OSI Approved :: MIT License",
+  "Programming Language :: Python :: 3",
+  "Programming Language :: Python :: 3.12",
+  "Programming Language :: Python :: 3.13",
+  "Topic :: Office/Business",
+]
+dependencies = [
+  "fastapi>=0.128.2,<1",
+  "httpx>=0.28.1,<1",
+  "pydantic>=2.13.4,<3",
+  "pydantic-settings>=2.14.1,<3",
+  "pyyaml>=6.0.3,<7",
+  "typer>=0.26.3,<1",
+  "uvicorn[standard]>=0.40,<1",
+]
+
+[project.optional-dependencies]
+anthropic = ["anthropic>=0.104.1,<1"]
+openai = ["openai>=2.14,<3"]
+providers = [
+  "anthropic>=0.104.1,<1",
+  "openai>=2.14,<3",
+]
+
+[dependency-groups]
+dev = [
+  "coverage[toml]>=7.12,<8",
+  "mypy>=1.19,<2",
+  "pytest>=9.0.2,<10",
+  "pytest-cov>=7.0,<8",
+  "ruff>=0.14,<1",
+]
+
+[project.scripts]
+workflow-ai = "workflow_ai.cli:app"
+
+[build-system]
+requires = ["hatchling>=1.28"]
+build-backend = "hatchling.build"
+
+[tool.hatch.build.targets.wheel]
+packages = ["src/workflow_ai"]
+
+[tool.uv]
+required-version = ">=0.10,<0.12"
+
+[tool.pytest.ini_options]
+addopts = "-q --strict-markers --disable-warnings"
+testpaths = ["tests"]
+pythonpath = ["src"]
+
+[tool.coverage.run]
+branch = true
+source = ["workflow_ai"]
+
+[tool.coverage.report]
+show_missing = true
+skip_covered = true
+fail_under = 85
+
+[tool.ruff]
+target-version = "py312"
+line-length = 100
+src = ["src", "tests"]
+
+[tool.ruff.lint]
+select = ["E", "F", "I", "B", "UP", "SIM", "RUF"]
+ignore = ["B008"]
+
+[tool.ruff.lint.per-file-ignores]
+"tests/*" = ["S101"]
+
+[tool.mypy]
+python_version = "3.12"
+strict = true
+packages = ["workflow_ai"]
+plugins = ["pydantic.mypy"]
+
+[[tool.mypy.overrides]]
+module = ["yaml.*"]
+ignore_missing_imports = true

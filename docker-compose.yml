@@ -1,0 +1,19 @@
+services:
+  workflow-ai:
+    build: .
+    ports:
+      - "8080:8080"
+    env_file:
+      - path: .env
+        required: false
+    environment:
+      WORKFLOW_AI_WORKSPACE_ROOT: /app
+      WORKFLOW_AI_VAULT_PATH: vault
+      WORKFLOW_AI_RUNTIME_PATH: .workflow-ai
+    volumes:
+      - ./vault:/app/vault
+      - workflow-runtime:/app/.workflow-ai
+    restart: unless-stopped
+
+volumes:
+  workflow-runtime:

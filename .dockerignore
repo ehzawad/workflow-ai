@@ -1,0 +1,13 @@
+.git
+.github
+.venv
+.workflow-ai
+.pytest_cache
+.mypy_cache
+.ruff_cache
+__pycache__
+*.pyc
+.env
+.env.*
+!.env.example
+vault/.obsidian

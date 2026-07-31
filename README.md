@@ -2,7 +2,7 @@
 
 Workflow AI is a local-first executive knowledge and coordination system built around an Obsidian-compatible Markdown vault. It converts meetings, transcripts, project updates, email-like notes, and ad hoc documents into structured knowledge; makes that knowledge searchable; produces daily and decision briefs; and turns explicit commitments into approval-gated communication drafts.
 
-The repository is designed as a portfolio-grade response to an AI Workflow Engineer / executive systems role. It demonstrates information architecture, structured AI extraction, workflow state, auditability, human review, API and CLI surfaces, deployment scaffolding, and an explicit roadmap for safer real-world integrations.
+The repository demonstrates information architecture, structured AI extraction, workflow state, auditability, human review, API and CLI surfaces, deployment scaffolding, and an explicit roadmap for safer real-world integrations.
 
 ## The system in one picture
 
